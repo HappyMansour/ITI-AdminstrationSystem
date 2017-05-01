@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Administration.Models.Departments>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+</head>
+<body class="container">
+    <br /><br />
+    <div id="div1">
+       @Html.Partial("DepartmentListPartialView")
+        </div>
+    <div class="modal" id="edit-mod">
+        
+    </div>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+   <script>
+       function editFun() {
+           $("#edit-mod").modal('show');
+       }
+   </script>
+</body>
+</html>

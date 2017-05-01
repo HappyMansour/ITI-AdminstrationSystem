@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Administration.Models.Instructors>      la2 bs dah mtzabat feeh el radio btns
+    ViewBag.Title = "ChangeManager";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <form action="/Department/changeManagerNew" method="post">
+        <input type="hidden" value="{{@ViewBag.dept}}" />
+        <table>
+            <tr>
+                <th></th>
+                <th>Instrudtor Name</th>
+                <th>Instrudtor Address</th>
+                <th>Instrudtor GraduationYear</th>
+                <th>Instrudtor Status</th>
+                <th>Instrudtor BD</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <input type="radio" value="{{@item.Id}}" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(a => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(a => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(a => item.GraduationYear)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(a => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(a => item.BD)
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <input type="submit" value="Change Manager" class="btn btn-primary" />
+    </form>
+</div> 

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Administration.Models.Departments>
+<table class="table table-hover table-striped table-bordered">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </th>
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+            {
+        <tr>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            
+            <td>
+                @Ajax.ActionLink("Edit", "Edit", new { DepartmentId = item.DepartmentId }, new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "edit-mod", OnSuccess = "editFun()" }, new { @class = "btn btn-warning " }) |
+                @Ajax.ActionLink("Delete","Delete", new { DepartmentId = item.DepartmentId }, new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "edit-mod", OnSuccess = " editFun()" }, new { @class = "btn btn-danger" })|
+                @Html.ActionLink("show Courses", "showCourses", "Department",new { DepartmentId = item.DepartmentId },new {@class="btn btn-success" })|
+                @Html.ActionLink("show Instructors", "showInstructors", "Department", new { DepartmentId = item.DepartmentId }, new { @class = "btn btn-info" })
+
+
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create", "Department", new { @class = "btn btn-primary" })|@Html.ActionLink("Show Details", "Details", "Department", new { @class = "btn btn-primary" })|@Html.ActionLink("Change Manager", "ChangeManager", "Department", new { @class = "btn btn-primary" })|
+    @Html.ActionLink("Import Excel", "Import", "Department", new { @class = "btn btn-primary" })
+</p>
+
+   

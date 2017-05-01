@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Import";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using(Html.BeginForm("Import", "Department", FormMethod.Post,  new { enctype = "multipart/form-data" }))
+    {
+
+<h2>Excel File</h2>
+<input type="file" name="excelFile" />
+<br />
+<input type="submit" value="Import" />
+<p style="font-size:20px">@Html.Raw(ViewBag.Error)</p>
+   }
+@Html.ActionLink("Back to List", "Index", "Department", new { @class = "btn btn-primary" })
+

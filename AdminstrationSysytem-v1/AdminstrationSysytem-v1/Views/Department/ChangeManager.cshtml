@@ -1,0 +1,24 @@
+﻿@model Administration.Models.Departments
+
+@{
+    ViewBag.Title = "ChangeManager";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ChangeManager</h2>
+@using (Ajax.BeginForm("Manager", "Department", new AjaxOptions() { InsertionMode = InsertionMode.Replace,UpdateTargetId="div2", HttpMethod = "GET" }))
+{
+
+    @Html.DropDownListFor(a => a.DepartmentId, ViewBag.deps as SelectList, new { @class = "form-control" })
+    <div>
+        <input type="submit" value="show Instructors"  class="btn btn-success" style="margin-top:1%;margin-bottom:1%" />
+    </div>
+
+
+}
+
+ <div id="div2">
+    </div>
+
+
+
